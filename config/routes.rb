@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   get 'sessions/new'
-  get 'sessions/create'
+  post 'sessions/create' => 'sessions#create'
   get 'sessions/delete'
   root 'page#home'
   resources :users

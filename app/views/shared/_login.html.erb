@@ -1,26 +1,23 @@
 
 <h2>Log in</h2>
 
-<%= simple_form_for @user do |f| %>
-  <%=render 'shared/errors', object: f.object %>
-
+<%= form_with(url: sessions_create_path,scope: :session, local:true) do |f| %>
   <div class="form-inputs">
-    <%= f.input :name, input_html: {size:'30'} %>
-    <%= f.input :email,
+    <%=f.label :email %>
+    <%= f.text_field :email,
                 required: true,
                 autofocus: true,
                 input_html: { autocomplete: "email" ,size: '30'}%>
-    <%= f.input :password,
+    <%=f.label :password %>
+    <%= f.password_field :password,
                 required: true,
                 hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
                 input_html: { autocomplete: "new-password",size:'30' } %>
-    <%= f.input :password_confirmation,
-                required: true,
-                input_html: { autocomplete: "new-password",size:'30' } %>
+    <%=f.label :password_confirmation %>
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit, "Sign Up" %>
+    <%= f.submit 'Log In' %>
   </div>
 <% end %>
 
