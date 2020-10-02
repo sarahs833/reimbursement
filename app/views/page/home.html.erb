@@ -1,15 +1,16 @@
 <div class="container-fluid">
-  <div class="row">
-    <div class="col-md-6 signin">
-      <%= render 'shared/signin' %>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4 signin">
+        <%= render 'shared/signin' %>
+      </div>
+
+      <div class="col-md-4 login">
+        <%= render 'shared/login' %>
+      </div>
     </div>
-
-    <div class="col-md-6 login">
-      <%= render 'shared/login' %>
-    </div>
-
-
   </div>
+
   <%= link_to 'Log in', root_url, class: 'btn btn-primary login',remote:true %>
   <%= link_to 'Sign up', root_url, class: 'btn btn-success sign_up', remote:true %>
 </div>
