@@ -22,9 +22,7 @@
           <% end %>
 
 
-          <div class="col-3">
-            <%= form.input :date,:input_html => {class:'form form-control input-date'} %>
-          </div>
+
           <div class="col-3">
             <%= form.input :usage, :collection => Expense::USAGE, :input_html => {class:'form form-control'} %>
           </div>
@@ -48,12 +46,12 @@
           <div class="col-sm-3">
             <div class="form-group">
               <div class="input-group date" id="datetimepicker1" data-target-input="nearest">
-                <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker1"/>
+                <input name="expense[date]" type="text" class="form-control datetimepicker-input" data-target="#datetimepicker1"/>
                 <div class="input-group-append" data-target="#datetimepicker1" data-toggle="datetimepicker">
                   <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                 </div>
               </div>
-           </div>
+            </div>
           </div>
 
           <div class="actions">
@@ -66,8 +64,5 @@
 </div>
 
 <script>
-  $(document).on('turbolinks:load', function() {
-       $('#datetimepicker1').datetimepicker();
-    })
 
 </script>
