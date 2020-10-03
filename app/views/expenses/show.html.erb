@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @expense.user_id %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @expense.date %>
+</p>
+
+<p>
+  <strong>Usage:</strong>
+  <%= @expense.usage %>
+</p>
+
+<p>
+  <strong>Amount:</strong>
+  <%= @expense.amount %>
+</p>
+
+<p>
+  <strong>People:</strong>
+  <%= @expense.people %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @expense.description %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @expense.status %>
+</p>
+
+<%= link_to 'Edit', edit_expense_path(@expense) %> |
+<%= link_to 'Back', expenses_path %>

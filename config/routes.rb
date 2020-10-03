@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :expenses
   get 'sessions/new'
   post 'sessions/create' => 'sessions#create'
   delete 'sessions/destroy' => 'sessions#destroy'
