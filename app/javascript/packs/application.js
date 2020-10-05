@@ -8,14 +8,23 @@ require("@rails/activestorage").start()
 require("channels")
 import jquery from 'jquery';
 window.$ = window.jquery = jquery;
-require("tempusdominus-bootstrap-4")
 require("@nathanvda/cocoon")
 import '../stylesheets/application'
 import "bootstrap"
 
+import flatpickr from "flatpickr"
+require("flatpickr/dist/flatpickr.css")
 
-$.fn.jquery;
-$('.datetimepicker').datetimepicker();
+document.addEventListener("turbolinks:load", () => {
+  flatpickr(".datepicker", {
+    altInput: true,
+    altFormat: "F j, Y",
+    dateFormat: "Y-m-d",
+  })
+})
+
+// $.fn.jquery;
+// $('.datetimepicker').datetimepicker();
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference
