@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_user_id, only: [:show, :edit, :update, :destroy]
+  skip_before_action :set_user, only: [:new,:create]
 
   # GET /users
   # GET /users.json
@@ -38,6 +39,22 @@ class UsersController < ApplicationController
     end
   end
 
+  def new_expense
+    @expense = Expense.new
+  end
+
+  def create_expenses
+    @user = User.new(expenses_params)
+    @user =
+    if @user.save
+      flash[:success] = 'expense created'
+      redirect_to root_path
+    else
+      Rails.logger.info(@user.errors.inspect)
+      flash[:danger] =  'something went wrong'
+    end
+  end
+
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
@@ -64,12 +81,16 @@ class UsersController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_user
+    def set_user_id
       @user = User.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
     def user_params
       params.require(:user).permit(:name, :email, :password, :password_confirmation)
+    end
+
+    def expenses_params
+      params.require(:user).permit(expenses_attributes: [:date, :usage, :amount, :people, :description, :status])
     end
 end

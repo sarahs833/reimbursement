@@ -1,0 +1,19 @@
+<h1>List of Games with Name, Difficulty, and Number of Players</h1>
+<form action='/games' method="POST">
+  <% 5.times do %>
+    <fieldset>
+      <li>
+        <label>Name</label>
+        <input ... name="game[][name]"/></li>
+      <li>
+        <label>Difficulty</label>
+        <input ... name="game[][difficulty]" />
+      </li>
+      <li>
+        <label>Players</label>
+        <input ... name="game[][players]" />
+      </li>
+    </fieldset>
+  <% end %>
+  <input type="submit"/>
+</form>

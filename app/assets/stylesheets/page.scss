@@ -20,4 +20,11 @@ a.sign_up {
   display:none
 }
 
+.bg-image {
+  background-image:url(calendar.png);
+}
 
+.move_down {
+  transform: translate(0px, 30px);
+  height: 40px;
+}

@@ -24,8 +24,8 @@ class ExpensesController < ApplicationController
   # POST /expenses
   # POST /expenses.json
   def create
-    @expense = Expense.new(expense_params)
-    @expense.user_id = current_user.id
+    @user = current_user
+    @expense = @user.expenses.build(expense_params)
     respond_to do |format|
       if @expense.save
         format.html { redirect_to @expense, notice: 'Expense was successfully created.' }
@@ -58,6 +58,14 @@ class ExpensesController < ApplicationController
     respond_to do |format|
       format.html { redirect_to expenses_url, notice: 'Expense was successfully destroyed.' }
       format.json { head :no_content }
+    end
+  end
+
+  def add_form
+    @expense = Expense.new
+    respond_to do |format|
+      format.html
+      format.js
     end
   end
 

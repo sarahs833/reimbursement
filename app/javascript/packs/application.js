@@ -2,21 +2,19 @@
 // present in this directory. You're encouraged to place your actual application logic in
 // a relevant structure within app/javascript and only use these pack files to reference
 // that code so it'll be compiled.
-import "bootstrap"
 require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
-require("tempusdominus-bootstrap-4")
-import '../stylesheets/application'
 import jquery from 'jquery';
 window.$ = window.jquery = jquery;
+require("tempusdominus-bootstrap-4")
+import '../stylesheets/application'
+import "bootstrap"
 
-$(function() {
-  $('#datetimepicker4').datetimepicker({
-    format: 'L'
-  });
-});
+
+$.fn.jquery;
+$('.datetimepicker').datetimepicker();
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference
