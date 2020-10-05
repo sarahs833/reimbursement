@@ -23,7 +23,7 @@
       <%= f.input :description, as: :text,:input_html => {class:'form-control',type:'array'} %>
     </div>
     <div class="col-10">
-      <%= f.check_box :_destroy %>
+      <%= link_to_remove_association "remove delete", f %>
     </div>
 
 </div>
