@@ -11,10 +11,4 @@ class User < ApplicationRecord
 
   has_secure_password
 
-  # def expenses_attributes=(expense_attributes)
-  #   expense_attributes.values.each do |expense_attribute|
-  #     expense = Expense.create(expense_attribute)
-  #     self.expenses << expense
-  #   end
-  # end
 end

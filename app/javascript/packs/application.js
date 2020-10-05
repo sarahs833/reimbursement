@@ -9,6 +9,7 @@ require("channels")
 import jquery from 'jquery';
 window.$ = window.jquery = jquery;
 require("tempusdominus-bootstrap-4")
+require("@nathanvda/cocoon")
 import '../stylesheets/application'
 import "bootstrap"
 

@@ -61,13 +61,6 @@ class ExpensesController < ApplicationController
     end
   end
 
-  def add_form
-    @expense = Expense.new
-    respond_to do |format|
-      format.html
-      format.js
-    end
-  end
 
   private
     # Use callbacks to share common setup or constraints between actions.

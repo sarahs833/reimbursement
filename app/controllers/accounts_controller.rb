@@ -15,7 +15,7 @@ class AccountsController < ApplicationController
   # GET /expenses/new
   def new
     @account = Account.new
-    3.times {@account.expenses.build}
+    @account.expenses.build
   end
 
   # GET /expenses/1/edit
