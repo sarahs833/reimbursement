@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
     if @user && @user.authenticate(params[:session][:password])
       login(@user)
       flash[:success] = "log in"
-      redirect_to root_path
+      redirect_to accounts_path
     else
       flash[:danger] = 'user not found'
       redirect_to root_path

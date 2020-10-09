@@ -64,3 +64,17 @@ tbody {
 tr:nth-child(even) {
   background-color: #eee;
 }
+
+.link {
+  color:#150485;
+  text-decoration:none
+}
+
+.link:visited{
+  color:#150485
+}
+
+.link:hover {
+  text-decoration:none;
+  background-color:transparent
+}

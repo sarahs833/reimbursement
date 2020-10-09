@@ -4,7 +4,11 @@ class AccountsController < ApplicationController
   # GET /expenses
   # GET /expenses.json
   def index
-    @expenses = Expense.all
+    if params[:search].present?
+      @expenses = current_user.expenses.where("usage =? or amount =?",params[:search].downcase,params[:search].to_i)
+    else
+      @expenses = current_user.expenses
+    end
   end
 
   # GET /expenses/1
@@ -30,7 +34,7 @@ class AccountsController < ApplicationController
     @account.user_id = current_user.id
     respond_to do |format|
       if @account.save
-        format.html { redirect_to @account, notice: 'Account was successfully created.' }
+        format.html { redirect_to accounts_path, notice: 'Account was successfully created.' }
         format.json { render :show, status: :created, location: @account }
       else
         format.html { render :new }
