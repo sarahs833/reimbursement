@@ -1,16 +1,19 @@
-<div class="container-fluid">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-4 signin">
+<div class="container-fluid vh-100 col-12">
+  <div class="container height-70">
+    <div class="row d-flex justify-content-center height-70">
+      <div class="col-md-5 signin">
         <%= render 'shared/signin' %>
       </div>
 
-      <div class="col-md-4 login">
+      <div class="col-md-5 login">
         <%= render 'shared/login' %>
       </div>
     </div>
   </div>
-
-  <%= link_to 'Log in', root_url, class: 'btn btn-primary login',remote:true %>
-  <%= link_to 'Sign up', root_url, class: 'btn btn-success sign_up', remote:true %>
+  <div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <%= link_to 'Log in', root_url, class: 'btn btn-outline-warning login mt-5 btn-lg',remote:true %>
+      <%= link_to 'Sign up', root_url, class: 'btn btn-success sign_up mt-5 btn-lg', remote:true %>
+    </div>
+  </div>
 </div>
