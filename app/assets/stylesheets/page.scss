@@ -32,3 +32,35 @@ a.sign_up {
 .height-70 {
   height:70vh
 }
+
+.height-30 {
+  height:30vh
+}
+
+.absolute {
+  position:absolute
+}
+
+.to-left {
+  transform:translate(-135px,0px)
+}
+
+.w-280 {
+  width:280px
+}
+
+table, th, td {
+  border:1px solid rgba(0, 0, 0, 0.125);
+  border-collapse: collapse;
+}
+
+td {
+  height:8vh
+}
+
+tbody {
+  text-align:center
+}
+tr:nth-child(even) {
+  background-color: #eee;
+}

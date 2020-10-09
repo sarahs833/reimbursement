@@ -10,6 +10,7 @@ class AccountsController < ApplicationController
   # GET /expenses/1
   # GET /expenses/1.json
   def show
+    @expenses = current_user.expenses
   end
 
   # GET /expenses/new
