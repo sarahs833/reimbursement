@@ -3,7 +3,6 @@ class ApplicationController < ActionController::Base
   before_action :set_user
   helper_method :current_user
 
-
   protected
 
   def set_user

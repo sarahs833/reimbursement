@@ -1,5 +1,6 @@
 class PageController < ApplicationController
   skip_before_action :set_user
+
   def home
     @user = User.new
     respond_to do |format|
@@ -7,4 +8,5 @@ class PageController < ApplicationController
       format.js
     end
   end
+
 end
