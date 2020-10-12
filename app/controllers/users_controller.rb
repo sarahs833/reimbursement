@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user_id, only: [:destroy]
   skip_before_action :set_user, only: [:new,:create]
+  rescue_from ActiveRecord::RecordNotFound, with: :invalid_user
 
 
   # GET /users/new
@@ -17,11 +18,11 @@ class UsersController < ApplicationController
     respond_to do |format|
       if @user.save
         login(@user)
-        format.html { redirect_to accounts_path, notice: 'User was successfully created.' }
-        format.json { render :show, status: :created, location: @user }
+        flash[:success] = 'User was successfully created.'
+        redirect_to accounts_path
       else
-        format.html { redirect_to root_url }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
+        flash[:danger] = 'User could not be created, please retry.'
+        redirect_to root_path
       end
     end
   end
@@ -46,5 +47,11 @@ class UsersController < ApplicationController
     # Only allow a list of trusted parameters through.
     def user_params
       params.require(:user).permit(:name, :email, :password, :password_confirmation)
+    end
+
+    def invalid_user
+      logger.error "At tempt to access in valid user #{params[:id]}"
+      flash[:danger] = 'Invalid User.'
+      redirect_to root_url
     end
 end
