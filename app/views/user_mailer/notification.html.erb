@@ -1,0 +1,22 @@
+<h1 style="text-align:center">Please check your expenses details</h1>
+
+<table style="width:100%;text-align: center;margin-top:40px">
+  <tr>
+    <th>Submit Date</th>
+    <th>Amount</th>
+    <th>Subject Count</th>
+    <th>Status</th>
+    <th>Usage</th>
+  </tr>
+  <%@expenses.find_each do |expense| %>
+  <tr>
+    <td><%=expense.date%></td>
+    <td><%=expense.amount%></td>
+    <td><%=expense.people%></td>
+    <td><%=expense.status%></td>
+    <td><%=expense.usage%></td>
+  </tr>
+  <%end%>
+</table>
+
+

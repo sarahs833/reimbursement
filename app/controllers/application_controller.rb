@@ -6,7 +6,10 @@ class ApplicationController < ActionController::Base
   protected
 
   def set_user
-    redirect_to root_path, notice: "Please log in" if current_user.blank?
+    if current_user.blank?
+      flash[:danger] = 'Please log in'
+      redirect_to root_path
+    end
   end
 
 end

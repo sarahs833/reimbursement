@@ -23,6 +23,7 @@ class AccountsController < ApplicationController
     @account.user_id = current_user.id
     respond_to do |format|
       if @account.save
+        @account.send_notification_mail
         format.html { redirect_to accounts_path, notice: 'reimburesements have been successfully submited.' }
         format.json { render :show, status: :created, location: @account }
       else

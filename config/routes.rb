@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+
+  require 'sidekiq/web'
+  mount Sidekiq::Web => '/sidekiq'
   get 'sessions/new'
   post 'sessions/create' => 'sessions#create'
   delete 'sessions/destroy' => 'sessions#destroy'
