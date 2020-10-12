@@ -2,6 +2,7 @@ require 'test_helper'
 
 class UsersCreateExpensesTest < ActionDispatch::IntegrationTest
   def setup
+    ActionMailer::Base.deliveries.clear
     @user = users(:one)
     @expense = expenses(:one)
   end
