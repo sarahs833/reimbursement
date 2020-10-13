@@ -14,16 +14,17 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(user_params)
-
-    respond_to do |format|
-      if @user.save
-        login(@user)
-        flash[:success] = 'User was successfully created.'
-        redirect_to accounts_path
-      else
-        flash[:danger] = 'User could not be created, please retry.'
-        redirect_to root_path
+    if @user.save
+      login(@user)
+      flash[:success] = 'User was successfully created.'
+      redirect_to accounts_path
+    else
+      error_messages = []
+      @user.errors.full_messages.each do |m|
+        error_messages << m
       end
+      flash[:danger] = 'They appear to be some errors:' + " " + error_messages.join(", ")
+      redirect_to root_path
     end
   end
 
