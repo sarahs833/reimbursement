@@ -21,15 +21,13 @@ class AccountsController < ApplicationController
   def create
     @account = Account.new(account_params)
     @account.user_id = current_user.id
-    respond_to do |format|
-      if @account.save
-        @account.send_notification_mail
-        flash[:succes] = 'reimburesements have been successfully submited.'
-        redirect_to accounts_path
-      else
-        format.html { render :new }
-        format.json { render json: @account.errors, status: :unprocessable_entity }
-      end
+    if @account.save
+      @account.send_notification_mail
+      flash[:success] = 'reimburesements have been successfully submited.'
+      redirect_to accounts_path
+    else
+      format.html { render :new }
+      format.json { render json: @account.errors, status: :unprocessable_entity }
     end
   end
 
