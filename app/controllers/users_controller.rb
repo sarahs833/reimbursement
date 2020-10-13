@@ -35,13 +35,13 @@ class UsersController < ApplicationController
   private
 
     # Only allow a list of trusted parameters through.
-    def user_params
-      params.require(:user).permit(:name, :email, :password, :password_confirmation)
-    end
+  def user_params
+    params.require(:user).permit(:name, :email, :password, :password_confirmation)
+  end
 
-    def invalid_user
-      logger.error "At tempt to access in valid user #{params[:id]}"
-      flash[:danger] = 'Invalid User.'
-      redirect_to root_url
-    end
+  def invalid_user
+    logger.error "At tempt to access in valid user #{params[:id]}"
+    flash[:danger] = 'Invalid User.'
+    redirect_to root_url
+  end
 end

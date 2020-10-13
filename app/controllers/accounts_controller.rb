@@ -35,7 +35,7 @@ class AccountsController < ApplicationController
 
   private
     # Only allow a list of trusted parameters through.
-    def account_params
-      params.require(:account).permit(:user_id,expenses_attributes:[:date, :usage, :amount, :people, :description, :status,:_destroy])
-    end
+  def account_params
+    params.require(:account).permit(:user_id,expenses_attributes:[:date, :usage, :amount, :people, :description, :status,:_destroy])
+  end
 end
