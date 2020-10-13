@@ -1,13 +1,6 @@
 class UsersController < ApplicationController
-  before_action :set_user_id, only: [:destroy]
-  skip_before_action :set_user, only: [:new,:create]
+  skip_before_action :set_user, only: :create
   rescue_from ActiveRecord::RecordNotFound, with: :invalid_user
-
-
-  # GET /users/new
-  def new
-    @user = User.new
-  end
 
 
   # POST /users
@@ -40,10 +33,6 @@ class UsersController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_user_id
-      @user = User.find(params[:id])
-    end
 
     # Only allow a list of trusted parameters through.
     def user_params
