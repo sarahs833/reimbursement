@@ -4,7 +4,7 @@ class AccountsController < ApplicationController
   # GET /expenses.json
   def index
     if params[:search].present?
-      @expenses = current_user.expenses.where("usage =? or amount =?",params[:search].downcase,params[:search].to_i)
+      @expenses = current_user.expenses.where("usage like ? or amount =?","%#{params[:search].downcase}%",params[:search].to_i)
     else
       @expenses = current_user.expenses
     end
