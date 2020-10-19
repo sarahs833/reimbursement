@@ -29,8 +29,9 @@ class UsersController < ApplicationController
   def create_expense
     @user = current_user
     @user.append_expenses(params[:user][:expenses_attributes])
+    expenses_count = params[:user][:expenses_attributes].keys.count
     @user.send_notification_mail
-    flash[:success] = 'reimburesements have been successfully submited.'
+    flash[:success] = expenses_count.to_s + " " + 'new reimburesements have been successfully submited.'
     redirect_to expenses_path
   end
 

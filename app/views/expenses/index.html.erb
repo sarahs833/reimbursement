@@ -28,7 +28,7 @@
           <td><%=expense.date%></td>
           <td><%=expense.amount%></td>
           <td><%=expense.people%></td>
-          <td><%=expense.status%></td>
+          <td><%= status_exist?(expense)%></td>
           <td><%=button_tag "review detail", class:'btn btn-outline-info' %></td>
         </tr>
       <%end%>
