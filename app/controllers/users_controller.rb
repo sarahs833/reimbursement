@@ -29,14 +29,9 @@ class UsersController < ApplicationController
   def create_expense
     @user = current_user
     @user.append_expenses(params[:user][:expenses_attributes])
-    if @user.save
-      @user.send_notification_mail
-      flash[:success] = 'reimburesements have been successfully submited.'
-      redirect_to expenses_path
-    else
-      flash[:warning] = 'Something went wrong, expense was not save'
-      redirect_to root_path
-    end
+    @user.send_notification_mail
+    flash[:success] = 'reimburesements have been successfully submited.'
+    redirect_to expenses_path
   end
 
 

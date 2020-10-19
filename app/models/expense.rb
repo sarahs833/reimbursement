@@ -2,7 +2,7 @@ class Expense < ApplicationRecord
   belongs_to :user
   attr_accessor :_destroy
 
-  USAGE = %w[Lunch Transport Vpn Other]
+  USAGE = %w[lunch transport vpn other]
   validates :usage, presence: true, inclusion: {in: USAGE }
   validates :date, presence: true
   validates :amount, numericality: { other_than: 0 }
