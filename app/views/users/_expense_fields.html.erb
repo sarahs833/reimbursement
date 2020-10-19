@@ -4,11 +4,11 @@
     </div>
 
     <div class="col-3">
-      <%= f.input :amount, placeholder: '0.0 rmb',:input_html => {class:'form-control'}%>
+      <%= f.input :amount, required: true,placeholder: '0.0 rmb',:input_html => {class:'form-control'}%>
     </div>
 
     <div class="col-3">
-      <%= f.input :people, collection: 1..5,:input_html => {class:'form-control nowidth'},include_blank: false, include_hidden: false %>
+      <%= f.input :people,collection: 1..5,:input_html => {class:'form-control nowidth'},include_blank: false, include_hidden: false %>
     </div>
 
     <div class="col-3">
@@ -16,12 +16,12 @@
     </div>
 
     <div class="col-3">
-      <%= f.input :date,as: :string, :input_html => { class:'form-control datepicker'} %>
+      <%= f.input :date,required: true,as: :string, :input_html => { class:'form-control datepicker'} %>
     </div>
 
     <div class="col-12 row d-flex justify-content-center align-items-center">
       <div class='col-10'>
-        <%= f.input :description, as: :text,:input_html => {class:'form-control',type:'array'} %>
+        <%= f.input :description,required: true, as: :text,:input_html => {class:'form-control',type:'array'} %>
       </div>
       <div class="col-2">
         <%= link_to_remove_association "remove delete", f,class:"btn btn-danger" %>

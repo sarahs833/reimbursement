@@ -5,8 +5,10 @@ Rails.application.routes.draw do
 
   post 'sessions/create' => 'sessions#create'
   delete 'sessions/destroy' => 'sessions#destroy'
+  get 'users/new_expense' => 'users#new_expense'
+  post 'users/create_expense' => 'users#create_expense'
   root 'page#home'
   resources :users, only: [:create,:destroy]
-  resources :accounts, only: [:index, :new, :create]
+  resources :expenses, only: :index
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

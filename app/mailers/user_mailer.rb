@@ -5,10 +5,9 @@ class UserMailer < ApplicationMailer
   #
   #   en.user_mailer.notification.subject
   #
-  def notification(user_id,account_id)
+  def notification(user_id)
     @user = User.find(user_id)
-    @expenses = Account.find(account_id).expenses
-
+    @expenses = @user.expenses
 
     mail to: @user.email, subject:'Expenses submited'
   end

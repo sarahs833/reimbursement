@@ -1,7 +1,7 @@
 <div class="col-lg-12 mt-5">
   <div class="card">
     <div class="card-body">
-      <%= simple_form_for @account do |form| %>
+      <%= simple_form_for @user, :url => users_create_expense_path, :method => :post  do |form| %>
       <div class="row p-3" style="margin-bottom: 20px;">
         <div class="col-12">
           <h4 class="mt-0 header-title">ADD Reimbursement</h4>
@@ -9,7 +9,7 @@
         <div class="col-12">
           <hr class="my-4">
         </div>
-        <%= render 'shared/errors', object: @account %>
+        <%= render 'shared/errors', object: @user %>
 
         <%= form.fields_for :expenses do |expense| %>
           <%= render 'expense_fields', f: expense %>
@@ -21,7 +21,7 @@
       <div class="col-lg-12 mt-3">
         <div class="actions">
           <%= form.submit "submit",class:'btn btn-success btn-lg mb-5'%>
-          <%= link_to "my reimbursement", accounts_path,class:'btn btn-lg btn-outline-dark mb-5' %>
+          <%= link_to "my reimbursement", expenses_path,class:'btn btn-lg btn-outline-dark mb-5' %>
         </div>
       <% end %>
       </div>

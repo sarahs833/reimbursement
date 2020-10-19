@@ -13,7 +13,7 @@ class SessionsControllerTest < ActionDispatch::IntegrationTest
 
   test "should let user login" do
     post sessions_create_path, params: { session: { email: @user.email, password: 'testing' } }
-    assert_redirected_to accounts_path
+    assert_redirected_to expenses_path
     assert_equal @user.id, session[:user_id]
   end
 

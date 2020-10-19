@@ -2,7 +2,7 @@ require 'test_helper'
 
 class ExpenseTest < ActiveSupport::TestCase
   setup do
-    @expense = Expense.new(account_id:1 , date: 2020-10-03, usage: 'vpn', amount: 10.0, people:1, description: 'hello', status: 'paid')
+    @expense = Expense.new(user_id:1 , date: 2020-10-03, usage: 'vpn', amount: 10.0, people:1, description: 'hello', status: 'paid')
   end
 
   test "usage should be included in the list" do

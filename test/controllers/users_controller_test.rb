@@ -10,7 +10,7 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
       post users_url, params: { user: { email: 'alex@gmail.com', name: 'alex', password: 'testing', password_confirmation: 'testing' } }
     end
 
-    assert_redirected_to accounts_url
+    assert_redirected_to expenses_url
   end
 
   test 'should not create user if email already exist' do

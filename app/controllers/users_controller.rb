@@ -10,13 +10,31 @@ class UsersController < ApplicationController
     if @user.save
       login(@user)
       flash[:success] = 'User was successfully created.'
-      redirect_to accounts_path
+      redirect_to expenses_path
     else
       error_messages = []
       @user.errors.full_messages.each do |m|
         error_messages << m
       end
       flash[:danger] = 'They appear to be some errors:' + " " + error_messages.join(", ")
+      redirect_to root_path
+    end
+  end
+
+  def new_expense
+    @user = User.new
+    @user.expenses.build
+  end
+
+  def create_expense
+    @user = current_user
+    @user.append_expenses(params[:user][:expenses_attributes])
+    if @user.save
+      @user.send_notification_mail
+      flash[:success] = 'reimburesements have been successfully submited.'
+      redirect_to expenses_path
+    else
+      flash[:warning] = 'Something went wrong, expense was not save'
       redirect_to root_path
     end
   end
@@ -36,7 +54,7 @@ class UsersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
   def user_params
-    params.require(:user).permit(:name, :email, :password, :password_confirmation)
+    params.require(:user).permit(:name, :email, :password, :password_confirmation,expenses_attributes:[:date, :usage, :amount, :people, :description, :status,:_destroy])
   end
 
   def invalid_user

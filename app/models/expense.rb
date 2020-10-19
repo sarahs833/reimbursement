@@ -1,5 +1,6 @@
 class Expense < ApplicationRecord
-  belongs_to :account
+  belongs_to :user
+  attr_accessor :_destroy
 
   USAGE = %w[Lunch Transport Vpn Other]
   validates :usage, presence: true, inclusion: {in: USAGE }

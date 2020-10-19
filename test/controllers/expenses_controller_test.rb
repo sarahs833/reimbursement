@@ -1,30 +1,32 @@
 require 'test_helper'
 
-class AccountsControllerTest < ActionDispatch::IntegrationTest
-
-  setup do
+class ExpensesControllerTest < ActionDispatch::IntegrationTest
+   setup do
     @user = users(:one)
     @expense = expenses(:one)
   end
 
   test 'should get index' do
     post sessions_create_path, params: { session: { email: @user.email, password: 'testing' } }
-    get accounts_url
+    get expenses_url
     assert_response :success
   end
 
   test 'should get new' do
     post sessions_create_path, params: { session: { email: @user.email, password: 'testing' } }
-    get new_account_path
+    get users_new_expense_path
     assert_response :success
   end
 
   test 'should create account and expenses' do
     post sessions_create_path, params: { session: { email: @user.email, password: 'testing' } }
     assert_difference('Expense.count') do
-      post accounts_url, params: {account: { expenses_attributes: [{ date: @expense.date, amount: @expense.amount, usage: 'Other', people: @expense.people, status: @expense.status }] } }
+      post users_create_expense_url, params: {user: { expenses_attributes: [{ date: @expense.date, amount: @expense.amount, usage: 'Other', people: @expense.people, status: @expense.status }] } }
     end
-    assert_redirected_to accounts_path
+    assert_redirected_to expenses_path
   end
 
+  # test "the truth" do
+  #   assert true
+  # end
 end
