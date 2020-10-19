@@ -1,6 +1,6 @@
 <div class='nested-fields col-12 mt-5 row'>
    <div class="col-3">
-      <%= f.input :usage, :collection => Expense::USAGE, :input_html => {class:'form form-control', type:'array'} %>
+      <%= f.input :usage, collection:[["Lunch","lunch"],["Transport","transport"],["Vpn","vpn"],["Other","other"]], :input_html => {class:'form form-control', type:'array'} %>
     </div>
 
     <div class="col-3">
