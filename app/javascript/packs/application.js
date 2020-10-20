@@ -8,8 +8,8 @@ require("@rails/activestorage").start()
 require("channels")
 import jquery from 'jquery';
 window.$ = window.jquery = jquery;
-require("@nathanvda/cocoon")
 import '../stylesheets/application'
+require("@nathanvda/cocoon")
 import "bootstrap"
 
 import flatpickr from "flatpickr"
